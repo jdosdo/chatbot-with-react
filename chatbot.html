@@ -11,21 +11,18 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-      function ChatInput(){
-        return(
+      function ChatInput() {
+        return (
           <>
-            <input 
-              placeholder="Send a message to chatbot" 
-              size="30" 
-            />
+            <input placeholder="Send a message to chatbot" size="30" />
             <button>Send</button>
           </>
-        )
+        );
       }
 
-      function ChatMessage({message, sender}){
+      function ChatMessage({ message, sender }) {
         // const message = props.message
-        // const sender = props.sender 
+        // const sender = props.sender
         // const { message, sender } = props
 
         /*
@@ -43,47 +40,33 @@
         // syntax value1 && value2
         // if value1 is true, then do value2
         // basically like if statement, used to do if statement on jsx
-        // as jsx cant do normal if 
-        return(
+        // as jsx cant do normal if
+        return (
           <div>
-            {sender === 'robot' && (
-              <img src="/img-chatbot/robot.png" width="50"  /> 
+            {sender === "robot" && (
+              <img src="/img-chatbot/robot.png" width="50" />
             )}
             {message}
-            {sender === 'user' && (
-              <img src="/img-chatbot/user.png" width="50"  />
+            {sender === "user" && (
+              <img src="/img-chatbot/user.png" width="50" />
             )}
           </div>
-        )
+        );
       }
 
-      function App(){
-        return(
+      function App() {
+        return (
           <>
             <ChatInput />
-            <ChatMessage 
-              message="Hello chatbot"
-              sender="user"
-            />
-            <ChatMessage 
-              message="Hello! How can I help you?" 
-              sender="robot"
-            />
-            <ChatMessage 
-              message="Can you get me today's date?" 
-              sender="user"
-            />
-            <ChatMessage 
-              message="Today is September 15" 
-              sender="robot"
-            />
-        </>
-        )
+            <ChatMessage message="Hello chatbot" sender="user" />
+            <ChatMessage message="Hello! How can I help you?" sender="robot" />
+            <ChatMessage message="Can you get me today's date?" sender="user" />
+            <ChatMessage message="Today is September 15" sender="robot" />
+          </>
+        );
       }
 
-      
-
-      const container = document.querySelector('.js-container');
+      const container = document.querySelector(".js-container");
       ReactDOM.createRoot(container).render(<App />);
     </script>
   </body>
