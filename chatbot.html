@@ -21,11 +21,13 @@
         }
 
         function handleKeyDown(event) {
-          event.key == "Enter" && sendMessage()
-          event.key == "Escape" && setInputText("")
+          event.key == "Enter" && sendMessage();
+          event.key == "Escape" && setInputText("");
         }
 
         async function sendMessage() {
+          setInputText("");
+
           const newChatMessages = [
             ...chatMessages,
             {
@@ -33,9 +35,16 @@
               sender: "user",
               id: crypto.randomUUID(),
             },
-          ]
+          ];
 
-          setChatMessages(newChatMessages);
+          setChatMessages([
+            ...newChatMessages,
+            {
+              message: "Loading...",
+              sender: "robot",
+              id: crypto.randomUUID(),
+            },
+          ]);
 
           const response = await Chatbot.getResponseAsync(inputText);
           setChatMessages([
@@ -46,8 +55,6 @@
               id: crypto.randomUUID(),
             },
           ]);
-          
-          setInputText("");
         }
         return (
           <>
@@ -139,6 +146,7 @@
         // const [chatMessages, setChatMessages] = array
         // const chatMessages = array[0];
         // const setChatMessages = array[1];
+        console.log(chatMessages)
 
         return (
           <>
